@@ -93,6 +93,7 @@ public class IntArrayBag implements Cloneable
 		int index;// the location of target in the data array;
 		boolean success = false;//added by me;
 		for(index = 0; (index < manyItems)&&(target != data[index]); index++);
+		//No work is needed in the body of this for-loop
 		
 		if(index == manyItems)
 		{
