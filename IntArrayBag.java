@@ -23,7 +23,7 @@ public class IntArrayBag implements Cloneable
 	{
 		if(manyItems == data.length)
 		{
-		ensureCapacity((manyItems + 1)*2);	
+			ensureCapacity((manyItems + 1)*2);	
 		}
 		data[manyItems] = element;
 		manyItems++;
