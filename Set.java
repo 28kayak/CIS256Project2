@@ -29,28 +29,50 @@ public class Set
 		numOfItems = 0;
 		
 	}
-	/*Effect: constructor to create a set which can store ÅecapacityÅf ints
-	 *@Precondition: NONE
-	 *@Postcondition: an empty set exists*/
-	public boolean isEmpty()
-	{
-		
-	}
 	/*Effect: Determines if this set is empty
 	 *Precondition: NONE
 	 *Postcondition: this Set object is unchanged
 	 *Returns: true if this Set is empty, false otherwise 
 	 */
+	public boolean isEmpty()
+	{
+		boolean empty = false;
+		for(int index = 0; index < sets.length; index++)
+		{
+			if(sets[index] == 0)
+			{
+				return empty = true;
+			}
+		}
+		return empty;
+	}
+	
 	public boolean isFull()
 	{
+		boolean fullness = false;
+		for(int index = 0; index < sets.length ; index++ )
+		{
+			if(sets[index] == 0)
+			{
+				return fullness;
+			}
+		}
+		fullness = true;
+		return fullness;
+	}
+	public void insert(int newItem)
+	{
+		if(numOfItems == sets.length)
+		{
+			sets[numOfItems] = newItem;
+			numOfItems++;
+		}
+		//throw new Exception("sorry, length is not enough");
 		
 	}
-	public void insert()
+	public boolean remove(int item)
 	{
-		
-	}
-	public boolean remove()
-	{
+		int index;
 		
 	}
 	public boolean contains(int item)
