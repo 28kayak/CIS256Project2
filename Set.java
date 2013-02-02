@@ -65,15 +65,14 @@ public class Set
 	}
 	public void insert(int newItem)
 	{
-		//for-loop avoid duplicate
-		for(index = 0; (index < numOfItems)&&(newItem != sets[index]);index++);
-		if(index == numOfItems)
-		{//does not duplicate elements and newItem
+		if(!contains(newItem))
+		{
 			if(numOfItems == sets.length)
 			{
 				sets[numOfItems] = newItem;
 				numOfItems++;
 			}
+			
 		}
 		else
 		{
