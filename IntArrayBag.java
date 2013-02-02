@@ -94,14 +94,22 @@ public class IntArrayBag implements Cloneable
 		boolean success = false;//added by me;
 		for(index = 0; (index < manyItems)&&(target != data[index]); index++);
 		//No work is needed in the body of this for-loop
-		
+		System.out.print("manyItems = ");
+		System.out.print(manyItems);
+		System.out.print("  index =");
+		System.out.print(index);
+		System.out.print("  value of data[index]=");
+		System.out.print(data[index]);
+		System.out.print("  value of data[manyItems-1]=");
+		System.out.println(data[manyItems-1]);
 		if(index == manyItems)
 		{
-			success = false; //return false;
+			success = false; //return false, finished looking all index of for-loop;
+			//means there is not target.
 		}
 		else
 		{
-			manyItems++; 
+			manyItems--;// 
 			data[index] = data[manyItems];
 			success = true;
 			
@@ -135,12 +143,17 @@ public class IntArrayBag implements Cloneable
 	public String toString()
 	{
 		String listArray = "";
-		for(int index = 0; index < data.length; index++)
+		for(int index = 0; index < manyItems; index++)
+		{
+			listArray += String.valueOf(data[index])+ ",";
+		}	
+		/* WONG VERSION
+		for(int index = 0; index <  data.length; index++)
 		{
 			listArray +=  String.valueOf(data[index]) + "\n"; 
 		}
-		
-		return listArray; 
+		*/
+		return  "{"+ listArray + "}"; 
 		
 		
 	}
