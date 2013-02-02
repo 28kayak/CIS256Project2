@@ -132,4 +132,16 @@ public class IntArrayBag implements Cloneable
 			
 			return answer;
 	}
+	public String toString()
+	{
+		String listArray = "";
+		for(int index = 0; index < data.length; index++)
+		{
+			listArray +=  String.valueOf(data[index]) + "\n"; 
+		}
+		
+		return listArray; 
+		
+		
+	}
 }//class
