@@ -99,6 +99,7 @@ public class Set
 		return success;
 		
 	}
+	//determine whether values is already contained or not.
 	public boolean contains(int item)
 	{//for-loop avoid duplicate
 		boolean duplicate = false;
