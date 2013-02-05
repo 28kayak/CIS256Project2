@@ -1,4 +1,4 @@
-import javax.xml.crypto.Data;
+//import javax.xml.crypto.Data;
 
 
 public class Set implements Cloneable
@@ -107,6 +107,7 @@ public class Set implements Cloneable
 	{//for-loop avoid duplicate
 		boolean duplicate = false;
 		for(index = 0; (index < numOfItems)&&(item != sets[index]);index++);
+		//no work needs
 		if(index == numOfItems)
 		{//no duplicate
 			duplicate = false;
@@ -138,7 +139,7 @@ public class Set implements Cloneable
 			if(this.sets.length == ((Set) aSet).sets.length)
 			{
 				for(int walker =0; walker < sets.length ; walker++)
-				{//“¯‚¶‚Ì‚ª‚ ‚Á‚½‚çA‚”
+				{//if there is the same integer, then return true
 					 if(contains(walker))
 					 {
 						 return equality = true;
@@ -184,18 +185,37 @@ public class Set implements Cloneable
 	{
 		return numOfItems;
 	}
-	public void chekingElememnt (Set aSet)
+	public Set chekingElememnt (Set aSet)
 	{
+		int newIndex = 0;
+		int newCapacity = this.sets.length + aSet.sets.length;
+		Set intersectionSet = new Set(newCapacity);//create 3rd object of array which has added length of added two object just in case.
+	
 		for(int walker = 0; walker < aSet.numOfItems; walker++)
 		{
-			if(!aSet.contains(numOfItems)) // if aSet does not contain
+			if(!aSet.contains(this.sets[walker])) // if aSet does not contain
 			{
 				System.out.println("it is not contained.");
 			}
 			else
 			{
-				System.out.println("it is duplicate");
-			}
+				System.out.printf("it is duplicate at inedx = %d and walker = %d\n", index, walker);
+				System.out.printf("duplicate num is %d\n",sets[walker]);
+				
+				intersectionSet.sets[newIndex] += sets[walker];
+				
+				System.out.printf("in intersection array = %d\n", intersectionSet.sets[newIndex]);
+				System.out.println("intersection = " + intersectionSet.toString());
+				System.out.printf("newIndex before addtion = %d", newIndex);
+				System.out.printf("intersectionSet.sets[newIndex] = %d\n", intersectionSet.sets[newIndex]);
+				newIndex++;
+			}//else
 		}
+		for(int i = 0; i < intersectionSet.sets.length; i++ )
+		{
+			System.out.println("inside of intersection array " + intersectionSet.sets[i]);
+		}
+		
+		return intersectionSet;
 	}
 }//class
