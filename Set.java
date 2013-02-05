@@ -1,7 +1,7 @@
 import javax.xml.crypto.Data;
 
 
-public class Set 
+public class Set implements Cloneable
 {
 	private int [] sets;
 	private int numOfItems;
@@ -14,9 +14,10 @@ public class Set
 		final int INIT_CAPACITY =5;
 		numOfItems = 0;
 		sets = new int [INIT_CAPACITY];
-		for(int index = 0; index < sets.length; index++)
+		
+		for(int initial = 0; initial < sets.length; initial++)
 		{
-			sets[index] = 0;
+			sets[initial] = 0;
 		}
 	}
 	/*Effect: constructor to create a set which can store ecapacityf ints
@@ -25,9 +26,9 @@ public class Set
 	public Set(int capacity)
 	{
 		sets = new int [capacity];
-		for(int index = 0; index < sets.length ; index++)
+		for(int initial = 0; initial < sets.length ; initial++)
 		{
-			sets[index] = 0;
+			sets[initial] = 0;
 		}
 		numOfItems = 0;
 		
@@ -65,20 +66,22 @@ public class Set
 	}
 	public void insert(int newItem)
 	{
-		if(!contains(newItem))
+		if(numOfItems != sets.length)
 		{
-			if(numOfItems == sets.length)
-			{
+			if(!contains(newItem))
+			{			
 				sets[numOfItems] = newItem;
 				numOfItems++;
 			}
-			
+			else
+			{
+				System.out.println("Sorry, your integer is duplicate");
+			}
 		}
 		else
 		{
-			//throw new Exception("");
+			throw new SetException("No space to store");
 		}
-		//throw new Exception("sorry, length is not enough");
 		
 	}
 	public boolean remove(int item)
@@ -117,7 +120,7 @@ public class Set
 	}
 	public boolean subset(Set aSet)
 	{
-		
+	
 	}
 	public Set union(Set aSet)
 	{
@@ -167,10 +170,32 @@ public class Set
 		String listArray = "";
 		for(int index = 0; index < numOfItems; index++)
 		{
-			listArray +=  String.valueOf(sets[index]) + ", "; 
+			listArray +=  String.valueOf(sets[index]) ;
+			if(index < numOfItems -1)
+			{
+				listArray += ", ";
+			}
 		}
 		
 		return "{"+ listArray + "}"; 
 		
+	}
+	public int getNumOfItems()
+	{
+		return numOfItems;
+	}
+	public void chekingElememnt (Set aSet)
+	{
+		for(int walker = 0; walker < aSet.numOfItems; walker++)
+		{
+			if(!aSet.contains(numOfItems)) // if aSet does not contain
+			{
+				System.out.println("it is not contained.");
+			}
+			else
+			{
+				System.out.println("it is duplicate");
+			}
+		}
 	}
 }//class
