@@ -13,21 +13,23 @@ public class SetTest
 		set1.insert(5);
 		
 		set2.insert(6);
-		set2.insert(7);
+		set2.insert(4);
 		set2.insert(8);
 		set2.insert(9);
 		set2.insert(3);
+		
+		System.out.println("set2 inseted :" + set2.toString());
 		
 		System.out.println(set2.contains(4));
 		
 		System.out.println("after insertion" + set1.getNumOfItems());
 		set1.clone();
 		System.out.println(set1.toString());
-		set1.remove(3);
+		//set1.remove(3);
 		System.out.println("after removing" + set1.getNumOfItems());
 		System.out.println(set1.toString());
 		
-		set1.chekingElememnt(set2);
+		 System.out.println(set1.chekingElememnt(set2).toString());
 		
 		
 		
@@ -48,6 +50,7 @@ public class SetTest
 			System.out.println("this set is not Full");
 		}
 		
+		 
 	}//main
 
 }//class
