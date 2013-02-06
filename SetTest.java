@@ -29,7 +29,7 @@ public class SetTest
 		System.out.println("after removing" + set1.getNumOfItems());
 		System.out.println(set1.toString());
 		
-		 System.out.println(set1.chekingElememnt(set2));
+		 
 		
 		
 		
