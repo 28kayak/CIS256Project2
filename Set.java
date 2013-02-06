@@ -25,7 +25,7 @@ public class Set implements Cloneable
 	 *@Postcondition: an empty set exists*/
 	public Set(int capacity)
 	{
-		sets = new int [capacity];
+		sets = new int [capacity];//??
 		for(int initial = 0; initial < sets.length ; initial++)
 		{
 			sets[initial] = 0;
@@ -199,15 +199,17 @@ public class Set implements Cloneable
 			}
 			else
 			{
-				System.out.printf("it is duplicate at inedx = %d and walker = %d\n", index, walker);
-				System.out.printf("duplicate num is %d\n",sets[walker]);
+				//System.out.printf("it is duplicate at inedx = %d and walker = %d\n", index, walker);//??
+				//System.out.printf("duplicate num is %d\n",sets[walker]);
 				
-				intersectionSet.sets[newIndex] += sets[walker];
-				
+				intersectionSet.insert( sets[walker]);
+				/*
 				System.out.printf("in intersection array = %d\n", intersectionSet.sets[newIndex]);
 				System.out.println("intersection = " + intersectionSet.toString());
 				System.out.printf("newIndex before addtion = %d", newIndex);
 				System.out.printf("intersectionSet.sets[newIndex] = %d\n", intersectionSet.sets[newIndex]);
+				*/
+				System.out.println("intersection = " + intersectionSet.toString());
 				newIndex++;
 			}//else
 		}
