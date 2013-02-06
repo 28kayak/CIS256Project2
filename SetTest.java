@@ -25,11 +25,11 @@ public class SetTest
 		System.out.println("after insertion" + set1.getNumOfItems());
 		set1.clone();
 		System.out.println(set1.toString());
-		set1.remove(3);
+		//set1.remove(3);
 		System.out.println("after removing" + set1.getNumOfItems());
 		System.out.println(set1.toString());
 		
-		 System.out.println(set1.chekingElememnt(set2).toString());
+		 System.out.println(set1.chekingElememnt(set2));
 		
 		
 		
