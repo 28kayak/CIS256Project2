@@ -121,14 +121,57 @@ public class Set implements Cloneable
 	}
 	public boolean subset(Set aSet)
 	{
-	
+		boolean subset = false;
+		for(int walker = 0; (walker < aSet.numOfItems)||(walker < this.numOfItems); walker++)
+		{
+			if(!aSet.contains(this.sets[walker]))//if contains return false, no duplicate and deny false to be true
+			{
+				return subset = false;
+			}
+		}
+		subset = true;
+		return subset;
 	}
 	public Set union(Set aSet)
 	{
+		int newIndex = 0;
+		int unionCapacity = this.sets.length + aSet.sets.length;
+		Set unionSet = new Set(unionCapacity);
+		
+		for(int walker = 0; (walker < aSet.numOfItems)||(walker < this.numOfItems); walker++)
+		{
+			if(!aSet.contains(this.sets[walker]))//if num is NOT duplicate
+			{
+				unionSet.insert(sets[walker]);
+				newIndex++;
+			}
+			
+		}
+		System.out.println( unionSet.toString());
+		return unionSet;
 		
 	}
 	public Set intersection(Set aSet)
 	{
+		int newIndex = 0;
+		int newCapacity = this.sets.length + aSet.sets.length;
+		Set intersectionSet = new Set(newCapacity);//create 3rd object of array which has added length of added two object just in case.
+	
+		for(int walker = 0; walker < aSet.numOfItems; walker++)
+		{
+			if(!aSet.contains(this.sets[walker])) // if aSet does not contain
+			{
+				System.out.println("it is not contained.");
+			}
+			else
+			{
+				intersectionSet.insert( sets[walker]);
+				newIndex++;
+			}//else
+		}
+		
+		System.out.println("intersection = " + intersectionSet.toString());
+		return intersectionSet;
 	
 	}
 	public boolean equals(Object aSet)
@@ -185,39 +228,5 @@ public class Set implements Cloneable
 	{
 		return numOfItems;
 	}
-	public Set chekingElememnt (Set aSet)
-	{
-		int newIndex = 0;
-		int newCapacity = this.sets.length + aSet.sets.length;
-		Set intersectionSet = new Set(newCapacity);//create 3rd object of array which has added length of added two object just in case.
 	
-		for(int walker = 0; walker < aSet.numOfItems; walker++)
-		{
-			if(!aSet.contains(this.sets[walker])) // if aSet does not contain
-			{
-				System.out.println("it is not contained.");
-			}
-			else
-			{
-				//System.out.printf("it is duplicate at inedx = %d and walker = %d\n", index, walker);//??
-				//System.out.printf("duplicate num is %d\n",sets[walker]);
-				
-				intersectionSet.insert( sets[walker]);
-				/*
-				System.out.printf("in intersection array = %d\n", intersectionSet.sets[newIndex]);
-				System.out.println("intersection = " + intersectionSet.toString());
-				System.out.printf("newIndex before addtion = %d", newIndex);
-				System.out.printf("intersectionSet.sets[newIndex] = %d\n", intersectionSet.sets[newIndex]);
-				*/
-				System.out.println("intersection = " + intersectionSet.toString());
-				newIndex++;
-			}//else
-		}
-		for(int i = 0; i < intersectionSet.sets.length; i++ )
-		{
-			System.out.println("inside of intersection array " + intersectionSet.sets[i]);
-		}
-		
-		return intersectionSet;
-	}
 }//class
