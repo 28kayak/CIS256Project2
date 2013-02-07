@@ -41,27 +41,21 @@ public class Set implements Cloneable
 	public boolean isEmpty()
 	{
 		boolean empty = false;
-		for(int index = 0; index < sets.length; index++)
+		if(numOfItems == 0)
 		{
-			if(sets[index] == 0)
-			{
-				return empty = true;
-			}
+			return empty = true;
 		}
+		
 		return empty;
 	}
 	
 	public boolean isFull()
 	{
 		boolean fullness = false;
-		for(int index = 0; index < sets.length ; index++ )
+		if(numOfItems == sets.length)
 		{
-			if(sets[index] == 0)
-			{
-				return fullness;
-			}
+			fullness = true;
 		}
-		fullness = true;
 		return fullness;
 	}
 	public void insert(int newItem)
@@ -122,9 +116,9 @@ public class Set implements Cloneable
 	public boolean subset(Set aSet)
 	{
 		boolean subset = false;
-		for(int walker = 0; (walker < aSet.numOfItems)||(walker < this.numOfItems); walker++)
+		for(int walker = 0; walker < aSet.numOfItems; walker++)
 		{
-			if(!aSet.contains(this.sets[walker]))//if contains return false, no duplicate and deny false to be true
+			if(!this.contains(aSet.sets[walker]))//if contains return false, no duplicate and deny false to be true
 			{
 				return subset = false;
 			}
@@ -134,40 +128,41 @@ public class Set implements Cloneable
 	}
 	public Set union(Set aSet)
 	{
-		int newIndex = 0;
-		int unionCapacity = this.sets.length + aSet.sets.length;
+		//int newIndex = 0;
+		int unionCapacity = this.numOfItems + aSet.numOfItems;
 		Set unionSet = new Set(unionCapacity);
 		
-		for(int walker = 0; (walker < aSet.numOfItems)||(walker < this.numOfItems); walker++)
+		for(int walker = 0; walker < this.numOfItems; walker++)
 		{
-			if(!aSet.contains(this.sets[walker]))//if num is NOT duplicate
+			if(aSet.contains(this.sets[walker]))//if num is NOT duplicate
 			{
 				unionSet.insert(sets[walker]);
-				newIndex++;
+				
+				//newIndex++;
 			}
-			
+			if(aSet.contains(this.sets[walker]))
+			{
+				unionSet.insert(aSet.sets[walker]);
+			}
 		}
-		System.out.println( unionSet.toString());
+		//System.out.println("union set =" + unionSet.toString());
 		return unionSet;
 		
 	}
 	public Set intersection(Set aSet)
 	{
 		int newIndex = 0;
-		int newCapacity = this.sets.length + aSet.sets.length;
+		int newCapacity = Math.min(this.getNumOfItems(),  aSet.getNumOfItems());
 		Set intersectionSet = new Set(newCapacity);//create 3rd object of array which has added length of added two object just in case.
 	
-		for(int walker = 0; walker < aSet.numOfItems; walker++)
+		for(int walker = 0; walker < this.numOfItems; walker++)//careful with domain
 		{
-			if(!aSet.contains(this.sets[walker])) // if aSet does not contain
+			if(aSet.contains(this.sets[walker])) // if aSet does not contain
 			{
-				System.out.println("it is not contained.");
-			}
-			else
-			{
-				intersectionSet.insert( sets[walker]);
+				intersectionSet.insert(this.sets[walker]);
 				newIndex++;
-			}//else
+			}
+			
 		}
 		
 		System.out.println("intersection = " + intersectionSet.toString());
@@ -202,7 +197,7 @@ public class Set implements Cloneable
 			clonedSet = (Set)super.clone();
 		}
 		catch(CloneNotSupportedException ex)
-		{//just in case to forget implement Clonable class
+		{//just in case to forget implement Cloneable class
 			throw new RuntimeException("Not impliment Clonable");
 		}
 		clonedSet.sets = sets.clone();
