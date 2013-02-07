@@ -271,8 +271,8 @@ public class SetTest
 		 
 		 
 		 
-
-		 scan.close();
+		System.out.println("programed by kaya ota");
+		scan.close();
 	}//main
 
 }//class
