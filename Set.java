@@ -134,16 +134,17 @@ public class Set implements Cloneable
 		
 		for(int walker = 0; walker < this.numOfItems; walker++)
 		{
-			if(aSet.contains(this.sets[walker]))//if num is NOT duplicate
+			if(!aSet.contains(this.sets[walker]))//if num is NOT duplicate
 			{
 				unionSet.insert(sets[walker]);
 				
 				//newIndex++;
 			}
-			if(aSet.contains(this.sets[walker]))
+			/*if(aSet.contains(this.sets[walker]))
 			{
 				unionSet.insert(aSet.sets[walker]);
 			}
+			*/
 		}
 		//System.out.println("union set =" + unionSet.toString());
 		return unionSet;
