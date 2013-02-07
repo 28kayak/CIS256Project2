@@ -18,7 +18,7 @@ public class SetTest
 		numOfelement = scan.nextInt();
 		Set set2 = new Set(numOfelement);
 		
-		/*
+		
 		do
 		{
 			System.out.println("\nwhat action do you want to take?");
@@ -68,7 +68,7 @@ public class SetTest
 						}
 						
 					}
-					else
+					else if(set == 2)
 					{
 						System.out.println("Enter integer you want to remove into Set2");
 						element = scan.nextInt();
@@ -80,6 +80,10 @@ public class SetTest
 						{
 							System.out.printf("Sorry, %d does not exsist the int you typed",element);
 						}
+					}
+					else
+					{
+						System.out.println("invarid set number");
 					}
 					break;
 				case 3:
@@ -94,7 +98,7 @@ public class SetTest
 							System.out.printf("yes, %d is in Set1\n", element);
 						}		
 					}
-					else
+					else if(set == 2)
 					{
 						System.out.println("Enter integer you want to find from Set2");
 						element = scan.nextInt();
@@ -103,7 +107,10 @@ public class SetTest
 							System.out.printf("No, %d is not in Set2\n", element);
 						}		
 					}
-					
+					else
+					{
+						System.out.println("invarid set number");
+					}
 					break;
 				case 4: 
 					System.out.println("which Set do you want to check if it is empty?");
@@ -191,10 +198,10 @@ public class SetTest
 			}
 		}while (action != -1);
 		
-		*/
 		
 		
 		
+		/*
 		System.out.println("");
 		
 		
@@ -205,6 +212,11 @@ public class SetTest
 		set1.insert(3);
 		set1.insert(4);
 		set1.insert(5);
+		
+		set2.insert(1);
+		set2.insert(2);
+		set2.insert(3);
+		
 		
 		set2.insert(6);
 		set2.insert(4);
@@ -219,7 +231,7 @@ public class SetTest
 		System.out.println("intersection");
 		System.out.println(set1.intersection(set2));
 		
-		System.out.println("clone" + set1.clone());
+		//System.out.println("clone" + set1.clone());
 		
 		System.out.println("union :"+set1.union(set2));
 		
@@ -228,7 +240,7 @@ public class SetTest
 		//System.out.println(set1.toString());
 		
 		 
-		
+		System.out.println("subset :" + set1.subset(set2));
 		
 		
 		
@@ -241,7 +253,7 @@ public class SetTest
 			System.out.println("this set is not empty");
 		}
 		
-		
+		*/
 		 
 		 
 		 
