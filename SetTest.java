@@ -35,7 +35,7 @@ public class SetTest
 			switch(action)
 			{
 				case 1:
-					System.out.println("which Set do you want to insert an int?");
+					System.out.println("which Set do you want to insert an int? Enter 1 for Set1, 2 for Set2");
 					set = scan.nextInt();
 					if(set == 1)
 					{
@@ -43,11 +43,15 @@ public class SetTest
 						element = scan.nextInt();
 						set1.insert(element);
 					}
-					else
+					else if (set == 2)
 					{
 						System.out.println("Enter integer you want to add into Set2");
 						element = scan.nextInt();
 						set2.insert(element);
+					}
+					else 
+					{
+						System.out.println("invalid set number");
 					}
 					break;
 					
@@ -113,7 +117,7 @@ public class SetTest
 					}
 					break;
 				case 4: 
-					System.out.println("which Set do you want to check if it is empty?");
+					System.out.println("which Set do you want to check if it is empty?  Enter 1 for Set1, 2 for Set2");
 					set = scan.nextInt();
 					if(set == 1)
 					{
@@ -126,7 +130,7 @@ public class SetTest
 							System.out.println("this not empty set");
 						}
 					}
-					else
+					else if(set == 2)
 					{
 						if(set2.isEmpty())
 						{
@@ -137,9 +141,13 @@ public class SetTest
 							System.out.println("this not empty set");
 						}
 					}
+					else
+					{
+						System.out.println("invalid set number");
+					}
 					break;
 				case 5:
-					System.out.println("which Set do you want to check if it is empty?");
+					System.out.println("which Set do you want to check if it is full? Enter 1 for Set1, 2 for Set2");
 					set = scan.nextInt();
 					if(set == 1)
 					{
@@ -152,7 +160,7 @@ public class SetTest
 							System.out.println("this set still have space");
 						}
 					}
-					else
+					else if(set == 2)
 					{
 						if(set2.isFull())
 						{
@@ -162,6 +170,10 @@ public class SetTest
 						{
 							System.out.println("this set still have space");
 						}
+					}
+					else
+					{
+						System.out.println("invalid set number");
 					}
 					break;
 				case 6:
@@ -260,7 +272,7 @@ public class SetTest
 		 
 		 
 
-		 
+		 scan.close();
 	}//main
 
 }//class
