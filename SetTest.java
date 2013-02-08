@@ -1,3 +1,8 @@
+//Kaya Ota
+//CIS256 
+//2.07.2013
+//project2
+
 import java.util.Scanner;
 public class SetTest 
 {
